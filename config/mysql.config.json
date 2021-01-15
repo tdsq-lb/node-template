@@ -1,0 +1,9 @@
+{
+    "connConfig": {
+      "host": "39.106.71.251",
+      "user": "root",
+      "password": "0625libiao",
+      "database": "veryrich_server",
+      "connectionLimit": 10  
+    }
+}

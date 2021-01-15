@@ -1,16 +1,16 @@
-const DB = require('../config/db')
+const MySql = require('../config/mysql')
+const dbConfig = require('../config/mysql.config.json')
+
+const db = new MySql.default(dbConfig.connConfig)
+
 const msgcode = require('../config/msgcode')
 
 class veryrich {
-    static test(request, response, next) {
-        const SQL = 'CALL p_server_list';
-        DB(SQL).then(results => {
-            msgcode.success.data = results
-            response.send(msgcode.success)
-        }).catch(error => {
-            msgcode.error.msg = error
-            response.send(msgcode.error)
-        })
+    static async test(request, response, next) {
+        const reportid = 'fff'
+        const result = await db.exec("call p_server_list(:reportid)", {reportid})
+        console.log(result, '===========>>>>')
+        response.send(result)
     }
 }
 

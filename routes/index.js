@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-const DB = require('../config/db')
+const DB = require('../config/mysql')
 const msgcode = require('../config/msgcode')
 const veryrich = require('../controller/index')
 
