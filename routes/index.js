@@ -1,20 +1,14 @@
-var express = require('express');
-var router = express.Router();
-const DB = require('../config/mysql')
-const msgcode = require('../config/msgcode')
+const express = require('express');
 const veryrich = require('../controller/index')
 
-/* GET home page. */
-// router.get('/', function (req, res, next) {
-//   const SQL = 'CALL p_server_list';
-//   DB(SQL).then(results => {
-//     msgcode.success.data = results
-//     res.send(msgcode.success)
-//     console.log(msgcode.success)
-//   })
-//   // res.render('index', { title: 'Express' });
-// });
+class BaseRouter {
+  constructor() {
+    this.router = express.Router();
+    this.init()
+  }
+  init() {
+    this.router.use("/",veryrich.test)
+  }
+}
 
-router.get('/',veryrich.test)
-
-module.exports = router;
+exports.default = new BaseRouter().router;
