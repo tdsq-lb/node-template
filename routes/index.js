@@ -1,5 +1,5 @@
 const express = require('express');
-const veryrich = require('../controller/index')
+const smallrocket = require('./smallrocket')
 
 class BaseRouter {
   constructor() {
@@ -7,7 +7,7 @@ class BaseRouter {
     this.init()
   }
   init() {
-    this.router.use("/",veryrich.test)
+    this.router.use("/",smallrocket.default)
   }
 }
 
